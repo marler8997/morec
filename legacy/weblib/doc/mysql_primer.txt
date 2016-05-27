@@ -1,0 +1,86 @@
+
+* Execute/Run mysql client
+   mysql -h host -u user -p [startup-database]
+   	 -p: can use -p<password> or just -p and it will prompt you for the password
+
+
+Heirarchy:
+
+       ------------                             ------------
+      | Database 1 |                           | Database 2 |  
+       ------------                             ------------
+             |                                       |
+       -------------                           ------------                    ...
+      |             |                         |            |
+  ---------     ----------                ---------    ---------
+ | Table 1 |   | Table 2 | ...           | Table 1 |  | Table 2|  ...
+  ---------     ----------                ---------    ---------
+
+Tables have columns and rows.  Each row is a record.
+
+
+
+
+DATABASE
+----------------------------------------
+
+* Show/List databases
+   SHOW DATABASES;
+
+* Show/List current database
+   SELECT DATABASE();
+
+* Use/Switch to database
+   USE <database>[;]
+   NOTE: In this command the semi-colon is optional, and the command must be on one line.
+
+TABLE
+----------------------------------------
+* Show/List tables
+   SHOW TABLES;   
+
+* Describe table format
+   DESCRIBE <table>;
+
+POPULATING TABLE
+----------------------------------------
+* Load data using file
+   - Use \N for NULL
+   example file:
+      Paddy	Johnny		Cat	f	2007-08-01	\N
+      Whistler	David		Bird	m	2002-01-03	2007-04-12
+   - Use the LOAD DATA command
+      LOAD DATA LOCAL INFILE '/path/file' INTO TABLE pet
+      You can change the column seperator (default is tab '\t') and newline seperator (default is linefeed '\n').
+
+
+* INSERT statement
+   INSERT INTO <table> VALUES ('value', 'value', NULL, ...);
+
+RETRIEVING INFORMATION FROM TABLE
+----------------------------------------
+* The SELECT statment
+   SELECT <columns-to-select> FROM <table> WHERE <row-conditions>;
+
+* Show full table
+   SELECT * FROM <table>;
+
+
+UPDATING DATA IN A TABLE
+----------------------------------------
+* The UPDATE statement
+   UPDATE <table> SET <column-entry>=<new-value> WHERE <row-conditions>;
+
+DELETING A ROW
+----------------------------------------
+* The DELETE statement
+   DELETE FROM <table> where <row-condition>;
+
+
+
+
+SYNTAX
+----------------------------------------
+
+SELECT
+   [ALL | DISTINCT | DISTINCTROW]
